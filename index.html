@@ -9,17 +9,45 @@
     <body>
       <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0005; warmupTolerance: 0; missTolerance: 10;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
-      <img id="card" src="images/card.png" />
-      <a-asset-item id="avatarModel" src="models/men.gltf"></a-asset-item>
-      </a-assets>
+            <img id="card" src="images/card.png" />
+            <img id="3dactivated" src="images/informationActivated.png" />
+            <img id="3ddeactivated" src="images/informationDeactivated.png" />
+            <img id="infoactivated" src="images/3dmodelActivated.png" />
+            <img id="infodeactivated" src="images/3dmodelDeactivated.png" />
+            <!--<img id="profilePic" src="images/profilePic.png" />-->
+            <img id="tele" src="images/phone.png" />
+            <img id="web" src="images/web.png" />
+            <img id="mail" src="images/mail.png" />
+            <img id="location" src="images/gps.png" />
+            <a-asset-item id="avatarModel" src="models/men.gltf"></a-asset-item>
+        </a-assets>
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
   
         <a-entity mindar-image-target="targetIndex: 0">
-          <a-box src="#card" position="0 0 0" height="0.647" width="1" depth="0.01" rotation="0 0 0">
-              <a-entity rotation="0 0 0 " position="0.4 0.1 0.1" scale="1 1 1" gltf-model="#avatarModel" look-at="[camera]"
-                <!--animation="property: position; to: 0.5 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"-->>
-          </a-box>
+          <a-box src="#card" scale="0.1 0.1 0.1"position="0 0 0" height="0.571" width="1" depth="0.01" rotation="0 0 0">
+        </a-box>
+      <!-- May change to more background for better visibility  -->
+      <a-image src="#infodeactivated" position="1.25 0.3 0" visible="true" material="" geometry=""></a-image>
+      <a-image src="#infoactivated" position="1.25 0.3 0" visible="false" material="" geometry=""></a-image>
+      <a-image src="#3ddeactivated" position="0.9 0.3 0" visible="true" material="" geometry=""></a-image>
+      <a-image src="#3dactivated" position="0.9 0.3 0" visible="false" material="" geometry=""></a-image>
+      
+      <!--<a-image src="#profilePic"position="0 0 0" visible="true"></a-image>-->
+      
+      <!-- change the images to Button like including the text  -->
+      <a-image src="#mail" position="0.85 0.1 0" visible="true" material="" geometry="" scale="0.1 0.1 1">
+      <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21" scale="8 8 2"></a-entity>
+      </a-image>
+      <a-image src="#tele" position="0.85 -0.05 0" visible="true" material="" geometry="" scale="0.1 0.1 1">
+      <a-entity text="value: 01429487362; wrapCount: 21" scale="8 8 1"></a-entity>
+      </a-image>
+      <a-image src="#web" position="0.85 -0.2 0" visible="true" material="" geometry="" scale="0.1 0.1 1">
+      <a-entity text="value: www.google.com; wrapCount: 21" scale="8 8 1"></a-entity>
+      </a-image>
+      <a-image src="#location" position="0.85 -0.35 0" visible="true" material="" geometry="" scale="0.1 0.1 1">
+      <a-entity text="value: 5th Avenue 54633 westminster; wrapCount: 21" scale="8 8 1"></a-entity>
+      </a-image>
         </a-entity>
       </a-scene>
     </body>
