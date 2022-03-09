@@ -1,0 +1,93 @@
+<!-- import aframe and then ar.js with image tracking / location based features -->
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+<!-- style for the loader -->
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+
+  <!-- a-frame scene -->
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <a-assets>
+            <img id="card" src="images/card.png" />
+            <img id="3dactivated" src="images/informationActivated.png" />
+            <img id="3ddeactivated" src="images/informationDeactivated.png" />
+            <img id="infoactivated" src="images/3dmodelActivated.png" />
+            <img id="infodeactivated" src="images/3dmodelDeactivated.png" />
+            <!--<img id="profilePic" src="images/profilePic.png" />-->
+            <img id="tele" src="images/phone.png" />
+            <img id="web" src="images/web.png" />
+            <img id="mail" src="images/mail.png" />
+            <img id="location" src="images/gps.png" />
+            <a-asset-item id="avatarModel" src="models/men.gltf"></a-asset-item>
+        </a-assets>
+    <!-- a-nft is the anchor that defines an Image Tracking entity -->
+    <!-- on 'url' use the path to the Image Descriptors created before. -->
+    <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
+    <a-nft
+      type="nft"
+      url="nft/"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+                <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
+        </a-box>
+      <!-- May change to more background for better visibility  -->
+      <a-image src="#infodeactivated" position="1.25 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
+      <a-image src="#infoactivated" position="1.25 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
+      <a-image src="#3ddeactivated" position="0.9 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
+      <a-image src="#3dactivated" position="0.9 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
+      
+      <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
+      
+      <!-- change the images to Button like including the text  -->
+      <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
+        <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
+      </a-image>
+      <a-image src="#tele" position="0.85 -0.05 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
+        <a-entity text="value: 01429487362; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 1"></a-entity>
+      </a-image>
+      <a-image src="#web" position="0.85 -0.2 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
+        <a-entity text="value: www.google.com; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 1"></a-entity>
+      </a-image>
+      <a-image src="#location" position="0.85 -0.35 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
+        <a-entity text="value: 5th Avenue 54633 westminster; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 1"></a-entity>
+      </a-image>
+      </a-entity>
+    </a-nft>
+    <!-- static camera that moves according to the device movemenents -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
