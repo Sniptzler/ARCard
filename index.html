@@ -2,52 +2,12 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
-      <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+      <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-        <script>
-      const showInfo = () => {
-        let y = 0;
-       // const profileButton = document.querySelector("#profile-button");
-        const web = document.querySelector("#webObject");
-        const mail = document.querySelector("#mailObject");
-        const location = document.querySelector("#locationObject");
-        const tele = document.querySelector("#teleObject");
-
-        profileButton.setAttribute("visible", true);
-        setTimeout(() => {
-          webObject.setAttribute("visible", true);
-          const eventWeb = new Event('webShow');
-          webObject.dispatchEvent(eventWeb);
-        }, 300);
-        setTimeout(() => {
-          mailObject.setAttribute("visible", true);
-        }, 600);
-        setTimeout(() => {
-          locationObject.setAttribute("visible", true);
-        }, 900);
-        setTimeout(() => {
-          teleObject.setAttribute("visible", true);
-        }, 1200);
-
-      }
-
-      AFRAME.registerComponent('mytarget', {
-        init: function () {
-          this.el.addEventListener('targetFound', event => {
-            console.log("target found");
-                    showInfo();
-          });
-          this.el.addEventListener('targetLost', event => {
-            console.log("target lost");
-          });
-          //this.el.emit('targetFound');
-        }
-      });
-        </script>
     </head>
     <body>
-      <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0003; warmupTolerance: 0; missTolerance: 4;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0003; warmupTolerance: 0; missTolerance: 2;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
             <img id="card" src="images/card.png" />
             <img id="3dactivated" src="images/informationActivated.png" />
@@ -64,7 +24,7 @@
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
   
-           <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+           <a-entity mindar-image-target="targetIndex: 0">
             <a-entity scale="1 1 1">
                 <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
             </a-box>
@@ -72,19 +32,28 @@
               <!-- May change to more background for better visibility  
               <a-image src="#infodeactivated" position="1.25 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
               <a-image src="#infoactivated" position="1.25 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
+
+    
+          
+            
+    
+
+          
+    
+    
+  
               <a-image src="#3ddeactivated" position="0.9 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
               <a-image src="#3dactivated" position="0.9 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
 -->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
-
               <!-- change the images to Button like including the text  -->
-                <a-image visible="false" src="#mail" id="mailObject" position="0 0 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: targetFound; dur: 1000">
+                <a-image src="#mail" position="1.165 0.4 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
               </a-image>
-              <a-image visible="false" src="#tele" id="teleObject" position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
+              <a-image src="#tele" position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
               </a-image>
-              <a-image visible="false" src="#web" id="webObject" position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: webShow; dur: 10000">
+              <a-image src="#web" position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001">
               </a-image>
-              <a-image visible="false" src="#location" id="locationObject" position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
+              <a-image src="#location" position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1">
               </a-image>
               <!-- <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
                 <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
