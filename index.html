@@ -16,18 +16,18 @@
 
         profileButton.setAttribute("visible", true);
         setTimeout(() => {
-          web.setAttribute("visible", true);
+          webObject.setAttribute("visible", true);
           const eventWeb = new Event('webShow');
-          web.dispatchEvent(eventWeb);
+          webObject.dispatchEvent(eventWeb);
         }, 300);
         setTimeout(() => {
-          mail.setAttribute("visible", true);
+          mailObject.setAttribute("visible", true);
         }, 600);
         setTimeout(() => {
-          location.setAttribute("visible", true);
+          locationObject.setAttribute("visible", true);
         }, 900);
         setTimeout(() => {
-          tele.setAttribute("visible", true);
+          teleObject.setAttribute("visible", true);
         }, 1200);
 
       }
