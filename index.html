@@ -43,6 +43,7 @@
         // detect target found
         targett.addEventListener("targetFound", event => {
           console.log("target found");
+            mailObject.dispatchEvent("targetFound");
         });
         // detect target lost
         targett.addEventListener("targetLost", event => {
@@ -56,7 +57,7 @@
     </script>
     </head>
     <body>
-      <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0003; warmupTolerance: 0; missTolerance: 2;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0003; warmupTolerance: 0; missTolerance: 4;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
             <img id="card" src="images/card.png" />
             <img id="3dactivated" src="images/informationActivated.png" />
@@ -87,7 +88,7 @@
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
 
               <!-- change the images to Button like including the text  -->
-                <a-image src="#mail" position="0 0 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: targetFound; dur: 1000">
+                <a-image src="#mail" id="mailObject" position="0 0 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: targetFound; dur: 1000">
               </a-image>
               <a-image src="#tele" position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
               </a-image>
