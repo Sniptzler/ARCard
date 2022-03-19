@@ -6,6 +6,62 @@
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script>
+             const showInfo = () => {
+        let y = 0;
+       // const profileButton = document.querySelector("#profile-button");
+        const web = document.querySelector("#web");
+        const mail = document.querySelector("#mail");
+        const location = document.querySelector("#location");
+        const tele = document.querySelector("#tele");
+
+        profileButton.setAttribute("visible", true);
+        setTimeout(() => {
+          web.setAttribute("visible", true);
+          const eventWeb = new Event('webShow');
+          web.dispatchEvent(eventWeb);
+        }, 300);
+        setTimeout(() => {
+          mail.setAttribute("visible", true);
+        }, 600);
+        setTimeout(() => {
+          location.setAttribute("visible", true);
+        }, 900);
+        setTimeout(() => {
+          tele.setAttribute("visible", true);
+        }, 1200);
+
+      }
+        
+
+      const showAvatar = (onDone) => {
+       // const avatar = document.querySelector("#avatar");
+       // let z = -0.3;
+       // const id = setInterval(() => {
+       //   z += 0.008;
+        //  if (z >= 0.3) {
+        //    clearInterval(id);
+       //     onDone();
+        //  }
+       //   avatar.setAttribute("position", "0 -0.25 " + z);
+       // }, 10);
+      }
+
+      AFRAME.registerComponent('mytarget', {
+        init: function () {
+          this.el.addEventListener('targetFound', event => {
+            console.log("target found");
+            showAvatar(() => {
+                  setTimeout(() => {
+                    showInfo();
+                  }, 300);
+            });
+          });
+          this.el.addEventListener('targetLost', event => {
+            console.log("target lost");
+          });
+          //this.el.emit('targetFound');
+        }
+      });
         </script>
     </head>
     <body>
@@ -26,7 +82,7 @@
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
   
-           <a-entity id="targett" mindar-image-target="targetIndex: 0">
+           <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
             <a-entity scale="1 1 1">
                 <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
             </a-box>
@@ -42,11 +98,11 @@
               <!-- change the images to Button like including the text  -->
                 <a-image visible="false" src="#mail" id="mailObject" position="0 0 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: targetFound; dur: 1000">
               </a-image>
-              <a-image visible="false" src="#tele" position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
+              <a-image visible="false" src="#tele" position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
               </a-image>
-              <a-image visible="false" src="#web" position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001">
+              <a-image visible="false" src="#web" position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation="property: position; from: 0 0 0; to: 1.165 -1.22 0; loop: true; startEvents: webShow; dur: 10000">
               </a-image>
-              <a-image visible="false" src="#location" position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1">
+              <a-image visible="false" src="#location" position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
               </a-image>
               <!-- <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
                 <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
