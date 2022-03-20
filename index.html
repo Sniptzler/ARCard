@@ -14,10 +14,10 @@
               var el = this.el;  // <a-box>
 
               //el.addEventListener('targetFound', function () {
-                el.emit('startanimation');
+                //el.emit('startanimation', null, false);
                ele = document.getElementById(mailID);
-                ele.dispatchEvent('startanimation');
-                mailID.dispatchEvent('startanimation');
+                ele.emit('startanimation', null, false);
+
                 
               //});
 
