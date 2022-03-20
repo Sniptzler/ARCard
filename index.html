@@ -16,8 +16,8 @@
               //el.addEventListener('targetFound', function () {
                 el.emit('startanimation');
                ele = document.getElementById(mailID);
-                ele.emit('startanimation');
-                mailID.emit('startanimation');
+                ele.dispatchEvent('startanimation');
+                mailID.dispatchEvent('startanimation');
                 
               //});
 
