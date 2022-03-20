@@ -14,7 +14,7 @@
               var el = this.el;  // <a-box>
 
               //el.addEventListener('targetFound', function () {
-                el.setAttribute('visible', 'false');
+                el.emit('startanimation');
               //});
 
             }
@@ -62,7 +62,7 @@
 -->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
               <!-- change the images to Button like including the text  -->
-                <a-image src="#mail" targetfoundfirst position="1.165 0.4 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001">
+                <a-image src="#mail" targetfoundfirst position="1.165 0.4 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; to 10 10 10; startEvents: startanimation; dur: 10000;">
               </a-image>
               <a-image src="#tele" targetfoundfirst position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
               </a-image>
