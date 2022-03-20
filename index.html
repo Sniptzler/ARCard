@@ -5,24 +5,35 @@
       <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-        <script>AFRAME.registerComponent('targetfoundfirst', {
-            schema: {
-              color: {default: 'red'}
-            },
+        <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const sceneEl = document.querySelector('a-scene');
+                      const exampleTarget = document.querySelector('#example-target');
+                    const arSystem = sceneEl.systems["mindar-image-system"];
+                    exampleTarget.addEventListener("targetFound", event => {
+                      console.log("target found");
+                        var mail1 = document.querySelector('#mail');
+                        var mail2 = document.querySelector('#mailID');
+                        var img1 = document.querySelector('img');
 
-            init: function () {
-              var el = this.el;  // <a-box>
 
-              //el.addEventListener('targetFound', function () {
-                //el.emit('startanimation', null, false);
-               ele = document.getElementById(mailID);
-                ele.emit('startanimation', null, false);
 
-                
-              //});
+                          console.log('end1');
+                          mail2.emit('startanimation');
 
-            }
-          });
+                    });
+                    // arReady event triggered when ready
+                    sceneEl.addEventListener("arReady", (event) => {
+                      // console.log("MindAR is ready")
+                    });
+                    // arError event triggered when something went wrong. Mostly browser compatbility issue
+                    sceneEl.addEventListener("arError", (event) => {
+                      // console.log("MindAR failed to start")
+                    });
+
+                  });
+            
+            
         </script>
     </head>
     <body>
@@ -43,7 +54,7 @@
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
   
-           <a-entity mindar-image-target="targetIndex: 0">
+           <a-entity id="example-target"mindar-image-target="targetIndex: 0">
             <a-entity scale="1 1 1">
                 <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
             </a-box>
