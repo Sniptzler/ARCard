@@ -14,9 +14,11 @@
               var el = this.el;  // <a-box>
 
               //el.addEventListener('targetFound', function () {
-                //el.emit('startanimation');
-                //mailID.emit('startanimation');
-                img.emit('startanimation');
+                el.emit('startanimation');
+               ele = document.getElementById(mailID);
+                ele.emit('startanimation');
+                mailID.emit('startanimation');
+                
               //});
 
             }
