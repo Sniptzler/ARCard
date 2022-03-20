@@ -15,6 +15,8 @@
 
               //el.addEventListener('targetFound', function () {
                 el.emit('startanimation');
+                mailID.emit('startanimation');
+                img.emit('startanimation');
               //});
 
             }
@@ -62,13 +64,13 @@
 -->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
               <!-- change the images to Button like including the text  -->
-                <a-image src="#mail" targetfoundfirst position="1.165 0.4 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; to 10 10 10; startEvents: startanimation; dur: 10000;">
+                <a-image src="#mail" id="mailID" targetfoundfirst position="1.165 0.4 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; to 10 10 10; startEvents: startanimation; dur: 10000;">
               </a-image>
-              <a-image src="#tele" targetfoundfirst position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
+              <a-image src="#tele" id="teleID" targetfoundfirst position="1.165 0.15 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01">
               </a-image>
-              <a-image src="#web" targetfoundfirst position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001">
+              <a-image src="#web" id="webID"targetfoundfirst position="1.165 -0.1 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001">
               </a-image>
-              <a-image src="#location" targetfoundfirst position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1">
+              <a-image src="#location" id="locationID" targetfoundfirst position="1.16557 -0.35 0" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1">
               </a-image>
               <!-- <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
                 <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
