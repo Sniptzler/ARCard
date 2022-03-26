@@ -30,7 +30,8 @@
                                             }, 300);
                                         }, 300);
                                     }, 300);
-                            firstTime+1;
+                            firstTime= 1;
+                            console.log(firstTime);
                             };
                     });
                     // arReady event triggered when ready
@@ -40,6 +41,26 @@
                     // arError event triggered when something went wrong. Mostly browser compatbility issue
                     sceneEl.addEventListener("arError", (event) => {
                       // console.log("MindAR failed to start")
+                    });
+                      
+                      // detect location click event
+                    locationID.addEventListener("click", event => {
+                      console.log("location click");
+                    });
+                      
+                      // detect web  click event
+                    webID.addEventListener("click", event => {
+                      console.log("web click");
+                    });
+                      
+                      // detect tele click event
+                    teleID.addEventListener("click", event => {
+                      console.log("tele click");
+                    });
+                      
+                      // detect mail click event
+                    mailID.addEventListener("click", event => {
+                      console.log("mail click");
                     });
 
                   });
