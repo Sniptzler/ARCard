@@ -6,17 +6,58 @@
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <style>
-        .md-content-scroll .mbsc-fr-c {
-            height: 400px;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-        }
 
-        .md-content-scroll .mbsc-popup {
-            filter: blur(8px);
-        }
+            body {font-family: Arial, Helvetica, sans-serif;}
+
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+            }
+
+            /* The Close Button */
+            .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
         </style>
         <script>
+            var modal = document.getElementById("myModal");
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
             var firstTime=0;
                   document.addEventListener("DOMContentLoaded", function() {
                     const sceneEl = document.querySelector('a-scene');
@@ -57,7 +98,9 @@
                       // detect location click event
                     locationID.addEventListener("click", event => {
                       console.log("location click");
-                        divOverlay.setAttribute('display','true')
+                        
+                        modal.style.display = "block";
+                        
                     });
                       
                       // detect web  click event
@@ -81,6 +124,16 @@
         </script>
     </head>
     <body>
+        <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+              </div>
+
+            </div>
       <a-scene mindar-image="imageTargetSrc: nft/target7.mind; filterMinCF:0.000000000000001; filterBeta: 0.0003; warmupTolerance: 0; missTolerance: 2;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
             <img id="card" src="images/card.png" />
@@ -96,14 +149,12 @@
             <a-asset-item id="avatarModel" src="models/men.gltf"></a-asset-item>
         </a-assets>
   
-        <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
-        <div id="demo" class="mbsc-cloak">
-            <div class="mbsc-align-center mbsc-padding">
-                <img src="https://img.mobiscroll.com/demos/f1.png">
-                <h3>Liza Taylor</h3>
-                <p>liza.taylor@mobiscroll.com <br> (202) 555-0127</p>
-            </div>
-        </div>
+        <a-camera id="camera" position="0 0 0"look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 1.1.4; objects: .clickable"></a-camera>
+
+          
+          
+          
+          
            <a-entity id="example-target"mindar-image-target="targetIndex: 0">
             <a-entity scale="1 1 1">
                 <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
@@ -117,13 +168,13 @@
  animation__startanimation="property: position; from: 1.2 -0.8 0; to: 1.165 0.4 0; startEvents: startanimation; dur: 10000;"-->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
               <!-- change the images to Button like including the text  -->
-                <a-image src="#mail" id="mailID" targetfoundfirst position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 0.4 0; startEvents: startanimation; dur: 310;">
+                <a-image src="#mail" id="mailID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 0.4 0; startEvents: startanimation; dur: 310;">
               </a-image>
-              <a-image src="#tele" id="teleID" targetfoundfirst position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01" animation__startanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 0.15 0; startEvents: startanimation; dur: 310;">
+              <a-image src="#tele" id="teleID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01" animation__startanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 0.15 0; startEvents: startanimation; dur: 310;">
               </a-image>
-              <a-image src="#web" id="webID"targetfoundfirst position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001" animation__startanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.1 0; startEvents: startanimation; dur: 310;">
+              <a-image src="#web" id="webID"targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001" animation__startanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.1 0; startEvents: startanimation; dur: 310;">
               </a-image>
-              <a-image src="#location" id="locationID" targetfoundfirst position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1" animation__startanimation="property: position; from: 1.16557 -0.6 0; to: 1.16557 -0.35 0; startEvents: startanimation; dur: 310;">
+              <a-image src="#location" id="locationID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1" animation__startanimation="property: position; from: 1.16557 -0.6 0; to: 1.16557 -0.35 0; startEvents: startanimation; dur: 310;">
               </a-image>
               <!-- <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
                 <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
