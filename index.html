@@ -49,15 +49,16 @@
             }
         </style>
         <script>
-            var mail = document.querySelector('#mailID');
-            var web = document.querySelector('#webID');
-            var tele = document.querySelector('#teleID');
-            var location = document.querySelector('#locationID');
+            
             var firstTime=0;
                   document.addEventListener("DOMContentLoaded", function() {
                     const sceneEl = document.querySelector('a-scene');
-                      const exampleTarget = document.querySelector('#example-target');
+                    const exampleTarget = document.querySelector('#example-target');
                     const arSystem = sceneEl.systems["mindar-image-system"];
+                    const mail = document.querySelector('#mailID');
+                    const web = document.querySelector('#webID');
+                    const tele = document.querySelector('#teleID');
+                    const location = document.querySelector('#locationID');
                     exampleTarget.addEventListener("targetFound", event => {
                       console.log("target found");
                         
