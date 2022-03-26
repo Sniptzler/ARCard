@@ -5,6 +5,17 @@
       <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <style>
+        .md-content-scroll .mbsc-fr-c {
+            height: 400px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .md-content-scroll .mbsc-popup {
+            filter: blur(8px);
+        }
+        </style>
         <script>
             var firstTime=0;
                   document.addEventListener("DOMContentLoaded", function() {
@@ -46,6 +57,7 @@
                       // detect location click event
                     locationID.addEventListener("click", event => {
                       console.log("location click");
+                        divOverlay.setAttribute('display','true')
                     });
                       
                       // detect web  click event
@@ -85,7 +97,13 @@
         </a-assets>
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false"></a-camera>
-  
+        <div id="demo" class="mbsc-cloak">
+            <div class="mbsc-align-center mbsc-padding">
+                <img src="https://img.mobiscroll.com/demos/f1.png">
+                <h3>Liza Taylor</h3>
+                <p>liza.taylor@mobiscroll.com <br> (202) 555-0127</p>
+            </div>
+        </div>
            <a-entity id="example-target"mindar-image-target="targetIndex: 0">
             <a-entity scale="1 1 1">
                 <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
