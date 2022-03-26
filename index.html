@@ -6,13 +6,14 @@
       <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
       <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script>
+            var firstTime=0;
                   document.addEventListener("DOMContentLoaded", function() {
                     const sceneEl = document.querySelector('a-scene');
                       const exampleTarget = document.querySelector('#example-target');
                     const arSystem = sceneEl.systems["mindar-image-system"];
                     exampleTarget.addEventListener("targetFound", event => {
                       console.log("target found");
-                        var firstTime=0;
+                        
                         if(firstTime==0){
                             var location = document.querySelector('#locationID');
                                       location.emit('startanimation');
@@ -29,6 +30,7 @@
                                             }, 300);
                                         }, 300);
                                     }, 300);
+                            firstTime+1;
                             };
                     });
                     // arReady event triggered when ready
