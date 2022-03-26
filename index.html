@@ -49,7 +49,10 @@
             }
         </style>
         <script>
-            
+            var mail = document.querySelector('#mailID');
+            var web = document.querySelector('#webID');
+            var tele = document.querySelector('#teleID');
+            var location = document.querySelector('#locationID');
             var firstTime=0;
                   document.addEventListener("DOMContentLoaded", function() {
                     const sceneEl = document.querySelector('a-scene');
@@ -59,16 +62,16 @@
                       console.log("target found");
                         
                         if(firstTime==0){
-                            var location = document.querySelector('#locationID');
+                            
                                       location.emit('startanimation');
                                 setTimeout(function(){
-                                    var web = document.querySelector('#webID');
+                                    
                                       web.emit('startanimation');
                                     setTimeout(function(){
-                                        var tele = document.querySelector('#teleID');
+                                        
                                               tele.emit('startanimation');
                                         setTimeout(function(){
-                                            var mail = document.querySelector('#mailID');
+                                            
                                                 mail.emit('startanimation');
 
                                             }, 300);
@@ -88,7 +91,7 @@
                     });
                       
                       // detect location click event
-                    locationID.addEventListener("click", event => {
+                    location.addEventListener("click", event => {
                       console.log("location click");
                         
                         modal.style.display = "block";
@@ -96,17 +99,17 @@
                     });
                       
                       // detect web  click event
-                    webID.addEventListener("click", event => {
+                    web.addEventListener("click", event => {
                       console.log("web click");
                     });
                       
                       // detect tele click event
-                    teleID.addEventListener("click", event => {
+                    tele.addEventListener("click", event => {
                       console.log("tele click");
                     });
                       
                       // detect mail click event
-                    mailID.addEventListener("click", event => {
+                    mail.addEventListener("click", event => {
                       console.log("mail click");
                     });
 
@@ -141,7 +144,7 @@
             <a-asset-item id="avatarModel" src="models/men.gltf"></a-asset-item>
         </a-assets>
   
-        <a-camera id="camera" position="0 0 0"look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 1.1.4; objects: .clickable"></a-camera>
+        <a-camera id="camera" position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 1.1.4; objects: .clickable"></a-camera>
 
           
           
