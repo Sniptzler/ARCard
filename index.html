@@ -135,19 +135,19 @@
                       console.log("target found");
                         
                         if(firstTime==0){
-                            
+                            locationID.setAttribute('visible','false');
                               locationID.emit('startanimation');
                                 setTimeout(function(){
-                                    
+                                    webID.setAttribute('visible','false');
                                       webID.emit('startanimation');
                                     setTimeout(function(){
-                                        
-                                              teleID.emit('startanimation');
+                                        teleID.setAttribute('visible','false');
+                                          teleID.emit('startanimation');
                                         setTimeout(function(){
-                                            
+                                            mailID.setAttribute('visible','false');
                                                 mailID.emit('startanimation');
                                             setTimeout(function(){
-                                            
+                                                profilePicID.setAttribute('visible','false');
                                                     profilePicID.emit('startanimation');
 
                                             }, 300);
@@ -208,15 +208,17 @@
             function hideStartFields(){
                 mailID.emit('hideanimation');
                     setTimeout(function(){
-
-                          teleID.emit('hideanimation');
+                        mailID.setAttribute('visible','false');
+                        teleID.emit('hideanimation');
                         setTimeout(function(){
-
-                                  webID.emit('hideanimation');
+                            teleID.setAttribute('visible','false');
+                            webID.emit('hideanimation');
                             setTimeout(function(){
-
-                                    locationID.emit('hideanimation');
-
+                                webID.setAttribute('visible','false');
+                                locationID.emit('hideanimation');
+                                setTimeout(function(){
+                                    locationID.setAttribute('visible','false');
+                                }, 300);
                             }, 300);
                         }, 300);
                     }, 300);
@@ -278,15 +280,15 @@
  animation__startanimation="property: position; from: 1.2 -0.8 0; to: 1.165 0.4 0; startEvents: startanimation; dur: 10000;"-->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
               <!-- change the images to Button like including the text  -->
-                <a-image src="#mail" id="mailID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 0.4 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 0.4 0; to: 1.16557 0.15 0; startEvents: hideanimation; dur: 300;">
+                <a-image src="#mail" id="mailID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="false" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 0.4 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 0.4 0; to: 1.16557 0.15 0; startEvents: hideanimation; dur: 300;">
               </a-image>
-              <a-image src="#tele" id="teleID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01" animation__startanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 0.15 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 -0.1 0; startEvents: hideanimation; dur: 300;">
+              <a-image src="#tele" id="teleID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="false" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.01" animation__startanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 0.15 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 -0.1 0; startEvents: hideanimation; dur: 300;">
               </a-image>
-              <a-image src="#web" id="webID"targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001" animation__startanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.1 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 -0.35 0; startEvents: hideanimation; dur: 300;">
+              <a-image src="#web" id="webID"targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="false" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.00001" animation__startanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.1 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 -0.1 0; to: 1.16557 -0.35 0; startEvents: hideanimation; dur: 300;">
               </a-image>
-              <a-image src="#location" id="locationID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1" animation__startanimation="property: position; from: 1.16557 -0.6 0; to: 1.16557 -0.35 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.6 0; startEvents: hideanimation; dur: 300;">
+              <a-image src="#location" id="locationID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="false" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 1" animation__startanimation="property: position; from: 1.16557 -0.6 0; to: 1.16557 -0.35 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 -0.35 0; to: 1.16557 -0.6 0; startEvents: hideanimation; dur: 300;">
               </a-image>
-              <a-circle src="#profilePic" id="profilePicID" targetfoundfirst radius="0.3" class="clickable" position="2 -0 -0.0001" visible="" transparent="false" geometry="" scale="1 1 1" animation__startanimation="property: position; from: 1.16557 -0 0.001; to: 2 -0 -0.0001; startEvents: startanimation; dur: 300;" animation__zoomInProfileanimation="property: position; from: 1.66557 -0.35 0; to: 0 0 0; startEvents: zoomInProfileanimation; dur: 300;">
+              <a-circle src="#profilePic" id="profilePicID" targetfoundfirst radius="0.3" class="clickable" position="2 -0 -0.0001" visible="false" transparent="false" geometry="" scale="1 1 1" animation__startanimation="property: position; from: 1.16557 -0 0.001; to: 2 -0 -0.0001; startEvents: startanimation; dur: 300;" animation__zoomInProfileanimation="property: position; from: 1.66557 -0.35 0; to: 0 0 0; startEvents: zoomInProfileanimation; dur: 300;">
               </a-circle>
               <!-- <a-image src="#mail" position="0.85 0.1 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry="" scale="0.1 0.1 1">
                 <a-entity text="value: alexanderschmitt@web.de; wrapCount: 21; color: black;" position="5 0 0" scale="8 8 2"></a-entity>
