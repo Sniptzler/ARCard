@@ -136,19 +136,19 @@
                         
                         if(firstTime==0){
                             
-                              location.emit('startanimation');
+                              locationID.emit('startanimation');
                                 setTimeout(function(){
                                     
-                                      web.emit('startanimation');
+                                      webID.emit('startanimation');
                                     setTimeout(function(){
                                         
-                                              tele.emit('startanimation');
+                                              teleID.emit('startanimation');
                                         setTimeout(function(){
                                             
-                                                mail.emit('startanimation');
+                                                mailID.emit('startanimation');
                                             setTimeout(function(){
                                             
-                                                    profilePic.emit('startanimation');
+                                                    profilePicID.emit('startanimation');
 
                                             }, 300);
                                         }, 300);
