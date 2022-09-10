@@ -135,19 +135,19 @@
                       console.log("target found");
                         
                         if(firstTime==0){
-                            locationID.setAttribute('visible','false');
+                            locationID.setAttribute('visible','true');
                               locationID.emit('startanimation');
                                 setTimeout(function(){
-                                    webID.setAttribute('visible','false');
+                                    webID.setAttribute('visible','true');
                                       webID.emit('startanimation');
                                     setTimeout(function(){
-                                        teleID.setAttribute('visible','false');
+                                        teleID.setAttribute('visible','true');
                                           teleID.emit('startanimation');
                                         setTimeout(function(){
-                                            mailID.setAttribute('visible','false');
+                                            mailID.setAttribute('visible','true');
                                                 mailID.emit('startanimation');
                                             setTimeout(function(){
-                                                profilePicID.setAttribute('visible','false');
+                                                profilePicID.setAttribute('visible','true');
                                                     profilePicID.emit('startanimation');
 
                                             }, 300);
