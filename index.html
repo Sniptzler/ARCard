@@ -136,7 +136,7 @@
                         
                         if(firstTime==0){
                             
-                                      location.emit('startanimation');
+                              location.emit('startanimation');
                                 setTimeout(function(){
                                     
                                       web.emit('startanimation');
@@ -150,10 +150,10 @@
                                             
                                                     profilePic.emit('startanimation');
 
-                                                }, 300);
                                             }, 300);
                                         }, 300);
                                     }, 300);
+                                }, 300);
                             firstTime= 1;
                             console.log(firstTime);
                             };
@@ -188,14 +188,33 @@
                       // detect mail click event
                     mail.addEventListener("click", event => {
                       console.log("mail click");
+                        showProfile();
                     });
 
                   });
             function() showProfile{
+                hideStartFields();
+                
+                setTimeout(function(){
+                    profilePic.emit('zoomInProfileanimation');
+                }, 1200);
                 
             } 
             function() hideStartFields{
-            
+                mail.emit('hideanimation');
+                    setTimeout(function(){
+
+                          tele.emit('hideanimation');
+                        setTimeout(function(){
+
+                                  web.emit('hideanimation');
+                            setTimeout(function(){
+
+                                    location.emit('hideanimation');
+
+                            }, 300);
+                        }, 300);
+                    }, 300);
             }
             
         </script>
