@@ -262,22 +262,20 @@
   
         <a-camera id="camera" position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
 
-          
-          
-          
+
           
            <a-entity id="example-target" mindar-image-target="targetIndex: 0"rotation="0 0 0">
             <a-entity rotation="0 0 270">
-            <!-- <a-entity scale="1 1 1" class="clickable">
-               <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
-            </a-box>-->
+            <a-entity scale="2 2 2">
+            <a-box src="#card" scale="1 1 1"position="0 0 0" transparent="false" material="alphaTest:0.5;" height="0.571" width="1" depth="0.01" rotation="0 0 0">
+            </a-box>
             <a-entity position="-1.2 0.8 0" class="clickable" scale="1 1 1">
               <!-- May change to more background for better visibility  
               <a-image src="#infodeactivated" position="1.25 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
               <a-image src="#infoactivated" position="1.25 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
               <a-image src="#3ddeactivated" position="0.9 0.3 0" visible="true" transparent="false" material="alphaTest:0.5;" geometry=""></a-image>
               <a-image src="#3dactivated" position="0.9 0.3 0" visible="false" transparent="false" material="alphaTest:0.5;" geometry=""></a-image> 
- animation__startanimation="property: position; from: 1.2 -0.8 0; to: 1.165 0.4 0; startEvents: startanimation; dur: 10000;"-->
+                animation__startanimation="property: position; from: 1.2 -0.8 0; to: 1.165 0.4 0; startEvents: startanimation; dur: 10000;"-->
               <!--<a-image src="#profilePic"position="0 0 0" transparent="false" material="alphaTest:0.5;" visible="true"></a-image>-->
               <!-- change the images to Button like including the text  -->
                 <a-image src="#mail" id="mailID" targetfoundfirst class="clickable" position="1.16557 -0.8 -0.0001" visible="false" transparent="false" material="alphaTest: 0.5" geometry="" scale="1 0.5 0.001" animation__startanimation="property: position; from: 1.16557 0.15 0; to: 1.16557 0.4 0; startEvents: startanimation; dur: 300;" animation__hideanimation="property: position; from: 1.16557 0.4 0; to: 1.16557 0.15 0; startEvents: hideanimation; dur: 300;">
@@ -304,7 +302,7 @@
               </a-image> -->
            </a-entity>
          </a-entity>
-        <!--</a-entity>-->
+        </a-entity>
        </a-entity>
       </a-scene>
         <script>
